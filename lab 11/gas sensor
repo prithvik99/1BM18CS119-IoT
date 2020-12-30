@@ -1,0 +1,23 @@
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+}
+void loop()
+{
+ float sensorValue=analogRead(A0);
+  if(sensorValue>=300)
+  {
+    digitalWrite(13,HIGH);
+    Serial.println(sensorValue);
+    Serial.println("GAS LEAK ALERT");
+  }
+  else
+  {
+     digitalWrite(13,LOW);
+    Serial.println(sensorValue);
+    Serial.println("SAFE");
+  }
+  delay(1000);
+}
+
