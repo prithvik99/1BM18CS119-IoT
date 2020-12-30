@@ -1,0 +1,28 @@
+int tempin= A0;
+float temp=0;
+int buzz=12;
+
+void setup()
+  {
+      Serial.begin(9600);
+      pinMode(buzz,OUTPUT);
+      pinMode(13,OUTPUT);
+}
+  void loop()
+  {
+    temp=analogRead(tempin);
+    temp=temp*0.48828125;
+    Serial.println(temp);
+    delay(1000);
+    if(temp>38)
+    {
+      digitalWrite(buzz,HIGH);
+      digitalWrite(13,HIGH);
+      Serial.println("FIRE ALERT");
+    }
+    else
+    {
+      digitalWrite(buzz,LOW);
+      Serial.println("SAFE");
+    }
+  }
