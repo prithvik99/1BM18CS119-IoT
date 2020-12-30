@@ -1,0 +1,21 @@
+void setup()
+{
+  pinMode(3,OUTPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  int value=analogRead(A0);
+  Serial.println(value);
+  if(value>400)
+  {
+    digitalWrite(3,HIGH);
+    Serial.println("Vibrator is working :: turned on");
+  }
+  else
+  {
+    digitalWrite(3,LOW);
+    Serial.println("No motion");
+  }
+  delay(1000);
+}
